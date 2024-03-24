@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# USAGE: publish <note_name>
+# where <note_name> is a markdown file
+# calls the python script located in Desktop/projects/blog/note-upload/main.py to publish
+
+# get note path
+if [ -z "$1" ]; then
+    echo "Usage: publish <note_name>"
+    exit 1
+fi
+NOTE_NAME=$1
+NOTE_PATH=$(pwd)/$NOTE_NAME
+
+# publish using python script
+SCRIPT_PATH=/Users/sophiasharif/Desktop/projects/blog/note-upload/main.py
+source /Users/sophiasharif/Desktop/projects/blog/note-upload/venv/bin/activate
+python3 $SCRIPT_PATH $NOTE_PATH
+if [ $? -eq 0 ]; then
+    echo Published $NOTE_NAME successfully!
+else
+    echo Error when attempting to publish $NOTE_NAME
+fi

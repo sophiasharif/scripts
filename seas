@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# USAGE: seas
+# ssh into SeasNET server
+
+ssh classaif@lnxsrv13.seas.ucla.edu

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# USAGE: makescript <program_name> [optional: -g flag]
+# where <program_name> is the name of the program you want to create
+# if the -g flag (or any second arg) is included, the program will be created in the scripts directory
+# otherwise, the script will be created in the current directory
+
+program_name=$1
+if [ ! -z $2 ]; then
+    program_name="/Users/sophiasharif/scripts/$1"
+fi
+
+echo "#!/bin/bash" >"$program_name"
+chmod +x $program_name
+open -a "Visual Studio Code" $program_name
