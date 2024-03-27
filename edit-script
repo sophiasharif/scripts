@@ -1,0 +1,10 @@
+#!/bin/bash
+# USAGE: edit <program_name>
+# where <program_name> is a global shell script to edit
+
+if [ -z $1 ]; then
+    echo "Please provide a program name"
+    exit 1
+fi
+
+code "/Users/sophiasharif/scripts/$1"

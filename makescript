@@ -5,6 +5,11 @@
 # if the -g flag (or any second arg) is included, the program will be created in the scripts directory
 # otherwise, the script will be created in the current directory
 
+if [ -z $1 ]; then
+    echo "Please provide a program name"
+    exit 1
+fi
+
 program_name=$1
 if [ ! -z $2 ]; then
     program_name="/Users/sophiasharif/scripts/$1"

@@ -1,0 +1,27 @@
+#!/bin/bash
+# usage: note <note_name>
+# create a new note <note_name> in ~/notes
+
+if [ -z $1 ]; then
+    echo "Provide a note name"
+    exit 1
+fi
+
+# create directory for note if it doesn't exist
+note_dir=$(dirname $HOME/notes/$1)
+if [ ! -d $note_dir ]; then
+    mkdir $note_dir
+fi
+
+# if note doesn't exist, create it
+note_file=$HOME/notes/$1.md
+if [ ! -f $note_file ]; then
+    echo "# " >$note_file
+    echo "" >>$note_file
+    echo "Tags: " >>$note_file
+    echo "Summary: " >>$note_file
+    echo "" >>$note_file
+    echo "## " >>$note_file
+fi
+
+code $note_file
