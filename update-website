@@ -1,0 +1,21 @@
+#!/bin/bash
+
+python $PROJECTS_DIR/blog/website-contents/main.py
+if [ $? -ne 0 ]; then
+    echo "Failed to generate website contents"
+    exit 1
+fi
+
+cd $PROJECTS_DIR/blog/website-frontend
+
+npm run build
+if [ $? -ne 0 ]; then
+    echo "Failed to build website frontend"
+    exit 1
+fi
+
+firebase deploy
+if [ $? -ne 0 ]; then
+    echo "Failed to deploy website"
+    exit 1
+fi

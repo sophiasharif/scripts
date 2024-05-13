@@ -10,7 +10,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 NOTE_NAME=$1
-NOTE_PATH=$(pwd)/$NOTE_NAME
+NOTE_PATH=$(pwd)/$NOTE_NAME # convert relative path to absolute path
 
 # publish using python script
 SCRIPT_PATH=/Users/sophiasharif/Desktop/projects/blog/note-upload/main.py

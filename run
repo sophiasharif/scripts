@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export PATH="/usr/local/bin/code:/Users/sophiasharif/scripts:$PATH"
+
+$@
